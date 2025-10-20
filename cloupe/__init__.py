@@ -194,7 +194,7 @@ class Cloupe(object):
                 # csr matrix is shaped Features x Barcodes
                 mtx["CSR"] = scipy.sparse.csr_matrix(
                     (csr_values, csr_indices, csr_pointers),
-                    shape=(matrix["FeatureCount"], matrix["BarcodeCount"]),
+                    shape=(matrix["GeneCount"], matrix["BarcodeCount"]),
                 )
             self.matrices.append(mtx)
 
@@ -394,8 +394,8 @@ class Cloupe(object):
         # feature x barcode so it needs to be transposed for Annadata
         adata = ad.AnnData(X=matrix["CSR"]).T
         adata.obs_names = matrix["Barcodes"]
-        adata.var_names = matrix["FeatureIds"]
-        adata.var["FeatureNames"] = matrix["FeatureNames"]
+        adata.var_names = matrix["Genes"]
+        adata.var["GeneNames"] = matrix["GeneNames"]
 
         for projection in self.projections:
             # validate that the projection matches obs_names length
