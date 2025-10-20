@@ -194,7 +194,7 @@ class Cloupe(object):
                 # csr matrix is shaped Features x Barcodes
                 mtx["CSR"] = scipy.sparse.csr_matrix(
                     (csr_values, csr_indices, csr_pointers),
-                    shape=(matrix["GeneCount"], matrix["BarcodeCount"]),
+                    shape=(matrix["GeneCount"], matrix["CellCount"]),
                 )
             self.matrices.append(mtx)
 
