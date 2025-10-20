@@ -144,8 +144,8 @@ class Cloupe(object):
 
             for prop in [
                 "Barcodes",
-                "FeatureIds",
-                "FeatureNames",
+                "Genes",
+                "GeneNames",
                 "FeatureSecondaryNames",
             ]:
                 if prop not in matrix:
